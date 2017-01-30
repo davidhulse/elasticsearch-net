@@ -30,7 +30,7 @@ namespace Nest
 	[JsonObject(MemberSerialization.OptIn)]
 	public class CompletionProperty : DocValuesPropertyBase, ICompletionProperty
 	{
-		public CompletionProperty() : base("completion") { }
+		public CompletionProperty() : base(FieldType.Completion) { }
 
 		public string SearchAnalyzer { get; set; }
 		public string Analyzer { get; set; }
@@ -51,7 +51,7 @@ namespace Nest
 		int? ICompletionProperty.MaxInputLength { get; set; }
 		IList<ISuggestContext> ICompletionProperty.Contexts { get; set; }
 
-		public CompletionPropertyDescriptor() : base("completion") { }
+		public CompletionPropertyDescriptor() : base(FieldType.Completion) { }
 
 		public CompletionPropertyDescriptor<T> SearchAnalyzer(string searchAnalyzer) =>
 			Assign(a => a.SearchAnalyzer = searchAnalyzer);

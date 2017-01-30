@@ -24,7 +24,7 @@ namespace Nest
 
 	public class TokenCountProperty : DocValuesPropertyBase, ITokenCountProperty
 	{
-		public TokenCountProperty() : base("token_count") { }
+		public TokenCountProperty() : base(FieldType.TokenCount) { }
 
 		public string Analyzer { get; set; }
 
@@ -41,7 +41,7 @@ namespace Nest
 		: DocValuesPropertyDescriptorBase<TokenCountPropertyDescriptor<T>, ITokenCountProperty, T>, ITokenCountProperty
 		where T : class
 	{
-		public TokenCountPropertyDescriptor() : base("token_count") { }
+		public TokenCountPropertyDescriptor() : base(FieldType.TokenCount) { }
 
 		string ITokenCountProperty.Analyzer { get; set; }
 		double? ITokenCountProperty.Boost { get; set; }

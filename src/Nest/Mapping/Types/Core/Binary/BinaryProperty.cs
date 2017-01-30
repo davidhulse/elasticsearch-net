@@ -9,13 +9,13 @@ namespace Nest
 
 	public class BinaryProperty : DocValuesPropertyBase, IBinaryProperty
 	{
-		public BinaryProperty() : base("binary") { }
+		public BinaryProperty() : base(FieldType.Binary) { }
 	}
 
 	public class BinaryPropertyDescriptor<T>
 		: DocValuesPropertyDescriptorBase<BinaryPropertyDescriptor<T>, IBinaryProperty, T>, IBinaryProperty
 		where T : class
 	{
-		public BinaryPropertyDescriptor() : base("binary") { }
+		public BinaryPropertyDescriptor() : base(FieldType.Binary) { }
 	}
 }

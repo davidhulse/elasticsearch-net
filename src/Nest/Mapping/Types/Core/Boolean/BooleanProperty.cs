@@ -21,7 +21,7 @@ namespace Nest
 
 	public class BooleanProperty : DocValuesPropertyBase, IBooleanProperty
 	{
-		public BooleanProperty() : base("boolean") { }
+		public BooleanProperty() : base(FieldType.Boolean) { }
 
 		public bool? Index { get; set; }
 		public double? Boost { get; set; }
@@ -38,7 +38,7 @@ namespace Nest
 		bool? IBooleanProperty.NullValue { get; set; }
 		INumericFielddata IBooleanProperty.Fielddata { get; set; }
 
-		public BooleanPropertyDescriptor() : base("boolean") { }
+		public BooleanPropertyDescriptor() : base(FieldType.Boolean) { }
 
 		public BooleanPropertyDescriptor<T> Boost(double boost) => Assign(a => a.Boost = boost);
 		public BooleanPropertyDescriptor<T> Index(bool index) => Assign(a => a.Index = index);

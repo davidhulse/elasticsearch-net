@@ -20,7 +20,7 @@ namespace Nest
 
 	public class IpProperty : DocValuesPropertyBase, IIpProperty
 	{
-		public IpProperty() : base("ip") { }
+		public IpProperty() : base(FieldType.Ip) { }
 
 		public double? Boost { get; set; }
 		public bool? IncludeInAll { get; set; }
@@ -37,7 +37,7 @@ namespace Nest
 		string IIpProperty.NullValue { get; set; }
 		bool? IIpProperty.IncludeInAll { get; set; }
 
-		public IpPropertyDescriptor() : base("ip") { }
+		public IpPropertyDescriptor() : base(FieldType.Ip) { }
 
 		public IpPropertyDescriptor<T> Index(bool index) => Assign(a => a.Index = index);
 

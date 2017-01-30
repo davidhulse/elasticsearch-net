@@ -53,7 +53,9 @@ namespace Nest
 	/// </summary>
 	public class GenericProperty : DocValuesPropertyBase, IGenericProperty
 	{
+#pragma warning disable 618
 		public GenericProperty() : base(null) { }
+#pragma warning restore 618
 
 		public TermVectorOption? TermVector { get; set; }
 		public double? Boost { get; set; }
@@ -91,7 +93,9 @@ namespace Nest
 		int? IGenericProperty.PositionIncrementGap { get; set; }
 		IStringFielddata IGenericProperty.Fielddata { get; set; }
 
+#pragma warning disable 618
 		public GenericPropertyDescriptor() : base(null) { }
+#pragma warning restore 618
 
 		public GenericPropertyDescriptor<T> Index(FieldIndexOption? index = FieldIndexOption.NotAnalyzed) => Assign(a => a.Index = index);
 

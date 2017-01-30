@@ -8,19 +8,17 @@ using Newtonsoft.Json;
 namespace Nest
 {
 	[JsonObject(MemberSerialization.OptIn)]
-	public interface IPercolatorProperty : IProperty
-	{
-	}
+	public interface IPercolatorProperty : IProperty { }
 
 	public class PercolatorProperty : PropertyBase, IPercolatorProperty
 	{
-		public PercolatorProperty() : base("percolator") { }
+		public PercolatorProperty() : base(FieldType.Percolator) { }
 	}
 
 	public class PercolatorPropertyDescriptor<T>
 	: PropertyDescriptorBase<PercolatorPropertyDescriptor<T>, IPercolatorProperty, T>, IPercolatorProperty
 	where T : class
 	{
-		public PercolatorPropertyDescriptor() : base("percolator") { }
+		public PercolatorPropertyDescriptor() : base(FieldType.Percolator) { }
 	}
 }

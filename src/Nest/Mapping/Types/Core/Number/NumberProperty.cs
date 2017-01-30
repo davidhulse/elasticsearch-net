@@ -34,8 +34,9 @@ namespace Nest
 
 	public class NumberProperty : DocValuesPropertyBase, INumberProperty
 	{
-		public NumberProperty() : base(NumberType.Float.GetStringValue()) { }
-		public NumberProperty(NumberType type) : base(type.GetStringValue()) { }
+		public NumberProperty() : base(FieldType.Float) { }
+		public NumberProperty(NumberType type) : base(type.ToFieldType()) { }
+		[Obsolete("Please use overload taking NumberType")]
 		protected NumberProperty(string type) : base(type) { }
 
 		public bool? Index { get; set; }
@@ -54,8 +55,9 @@ namespace Nest
 		where TInterface : class, INumberProperty
 		where T : class
 	{
-		protected NumberPropertyDescriptorBase() : base("float") { }
+		protected NumberPropertyDescriptorBase() : base(FieldType.Float) { }
 
+		[Obsolete("Please use overload taking FieldType")]
 		protected NumberPropertyDescriptorBase(string type) : base(type) { }
 
 		bool? INumberProperty.Index { get; set; }

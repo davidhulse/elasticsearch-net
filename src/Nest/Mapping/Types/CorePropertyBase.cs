@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace Nest
 {
@@ -22,9 +23,10 @@ namespace Nest
 
 	public abstract class CorePropertyBase : PropertyBase, ICoreProperty
 	{
-		protected CorePropertyBase(TypeName typeName) : base(typeName)
-		{
-		}
+		[Obsolete("Please use overload taking FieldType")]
+		protected CorePropertyBase(TypeName typeName) : base(typeName) { }
+		protected CorePropertyBase(FieldType type) : base(type) { }
+
 
 		public Fields CopyTo { get; set; }
 		public IProperties Fields { get; set; }

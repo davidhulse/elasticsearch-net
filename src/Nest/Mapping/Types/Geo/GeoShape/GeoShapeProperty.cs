@@ -34,7 +34,7 @@ namespace Nest
 
 	public class GeoShapeProperty : DocValuesPropertyBase, IGeoShapeProperty
 	{
-		public GeoShapeProperty() : base("geo_shape") { }
+		public GeoShapeProperty() : base(FieldType.GeoShape) { }
 
 		public GeoTree? Tree { get; set; }
 
@@ -63,7 +63,7 @@ namespace Nest
 		double? IGeoShapeProperty.DistanceErrorPercentage { get; set; }
 		bool? IGeoShapeProperty.PointsOnly { get; set; }
 
-		public GeoShapePropertyDescriptor() : base("geo_shape") { }
+		public GeoShapePropertyDescriptor() : base(FieldType.GeoShape) { }
 
 		public GeoShapePropertyDescriptor<T> Tree(GeoTree tree) => Assign(a => a.Tree = tree);
 

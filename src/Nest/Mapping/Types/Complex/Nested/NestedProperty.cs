@@ -14,7 +14,7 @@ namespace Nest
 
 	public class NestedProperty : ObjectProperty, INestedProperty
 	{
-		public NestedProperty() : base("nested") { }
+		public NestedProperty() : base(FieldType.Nested) { }
 
 		public bool? IncludeInParent { get; set; }
 		public bool? IncludeInRoot { get; set; }
@@ -29,7 +29,7 @@ namespace Nest
 		bool? INestedProperty.IncludeInParent { get; set; }
 		bool? INestedProperty.IncludeInRoot { get; set; }
 
-		public NestedPropertyDescriptor() : base("nested") { }
+		public NestedPropertyDescriptor() : base(FieldType.Nested) { }
 
 		public NestedPropertyDescriptor<TParent, TChild> IncludeInParent(bool includeInParent = true) =>
 			Assign(a => a.IncludeInParent = includeInParent);

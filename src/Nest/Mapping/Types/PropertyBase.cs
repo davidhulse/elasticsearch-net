@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
+using Elasticsearch.Net;
 using Newtonsoft.Json;
 
 namespace Nest
@@ -27,10 +29,14 @@ namespace Nest
 
 	public abstract class PropertyBase : IProperty, IPropertyWithClrOrigin
 	{
+		[Obsolete("Please use overload taking FieldType")]
 		protected PropertyBase(TypeName typeName)
 		{
 			Type = typeName;
 		}
+#pragma warning disable 618
+		protected PropertyBase(FieldType type) : this(type.GetStringValue()) { }
+#pragma warning restore 618
 
 		public PropertyName Name { get; set; }
 		public virtual TypeName Type { get; set; }
