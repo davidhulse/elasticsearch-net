@@ -33,6 +33,9 @@ namespace Nest
 
 		[JsonProperty("null_value")]
 		string NullValue { get; set; }
+
+		[JsonProperty("normalizer")]
+		string Normalizer { get; set; }
 	}
 
 	public class KeywordProperty : DocValuesPropertyBase, IKeywordProperty
@@ -47,6 +50,7 @@ namespace Nest
 		public IndexOptions? IndexOptions { get; set; }
 		public bool? Norms { get; set; }
 		public string NullValue { get; set; }
+		public string Normalizer { get; set; }
 	}
 
 	public class KeywordPropertyDescriptor<T>
@@ -61,6 +65,7 @@ namespace Nest
 		IndexOptions? IKeywordProperty.IndexOptions{ get; set; }
 		bool? IKeywordProperty.Norms{ get; set; }
 		string IKeywordProperty.NullValue{ get; set; }
+		string IKeywordProperty.Normalizer{ get; set; }
 
 		public KeywordPropertyDescriptor() : base("keyword") { }
 
@@ -72,5 +77,6 @@ namespace Nest
 		public KeywordPropertyDescriptor<T> IndexOptions(IndexOptions indexOptions) => Assign(a => a.IndexOptions = indexOptions);
 		public KeywordPropertyDescriptor<T> Norms(bool enabled = true) => Assign(a => a.Norms = enabled);
 		public KeywordPropertyDescriptor<T> NullValue(string nullValue) => Assign(a => a.NullValue = nullValue);
+		public KeywordPropertyDescriptor<T> Normalizer(string normalizer) => Assign(a => a.Normalizer = normalizer);
 	}
 }
